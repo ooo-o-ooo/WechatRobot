@@ -1,33 +1,23 @@
-# Express.js on Vercel
+## 说明
+企业自建应用发送消息通知
 
-Simple Express.js + Vercel example that uses Vercel Postgres to add and display users in a table.
+接口：`/api/message`
 
-## How to Use
-
-BE sure to create a Vercel Postgres database and add you environment variables to your `.env` file. You can find an example of the `.env` file in the `.env.example` file.
-
-You can choose from one of the following two methods to use this repository:
-
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/examples/tree/main/solutions/express&project-name=express&repository-name=express)
-
-### Clone and Deploy
-
-```bash
-git clone https://github.com/vercel/examples/tree/main/solutions/express
+发送数据格式
+```json
+{
+    "message" : "这里是消息"
+}
+   ```
+## Vercel变量
+```
+CORP_ID=企业ID
+CORP_SECRET=应用秘钥
+AGENT_ID= 应用ID
 ```
 
-Install the Vercel CLI:
+## 其它说明
+部署后，post访问一次接口，会返回错误信息，将IP地址添加到企业微信应用的信任IP
 
-```bash
-npm i -g vercel
-```
+部署后不要随便更新Vercel部署，否则服务器IP会改变，需要重新添加IP白名单
 
-Then run the app at the root of the repository:
-
-```bash
-vercel dev
-```
