@@ -12,6 +12,12 @@ app.use(express.json());
 app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname, '..', 'components', 'home.htm'));
 });
+app.get('/blog', function (req, res) {
+    res.redirect('https://blog.onross.com');
+});
+app.get('/home', function (req, res) {
+    res.redirect('https://www.onross.com');
+});
 app.get("/api/app", (req, res) => {
     res.send("Express on Vercel");
 });
